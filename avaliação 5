@@ -16,49 +16,35 @@ def geraResponse(status, nomeConteudo, conteudo, mensagem=False):
     return Response(json.dumps(body), status=status, mimetype="application/json")
 
 #clientes
-cl01 = Cliente(0, "Kelvin Rodrigues", 101, '072.406.301-00', 'Pessoa física')
-cl02 = Cliente(1, "Raquel Maciel", 102, '232.443.334-82', 'Pessoa física')
-cl03 = Cliente(2, "Yuri Santiago", 103, '543.891.592-41', 'Pessoa física')
+cl01 = Cliente(0, "José Simão da Silva", 101, '200.100.345-34')
 
-listaClientes = [cl01, cl02, cl03]
+listaClientes = [cl01]
 
 #produtos
-pr01 = Produto(0, 100, 'Arroz Branco', 5.70)
-pr02 = Produto(1, 200, 'Macarrão Parafuso', 6.25)
-pr03 = Produto(2, 300, 'Feijão Preto', 4.99)
+pr01 = Produto(0, 100, 'Arroz Agulha', 5.50)
+pr02 = Produto(1, 200, 'Macarrao Fortaleza', 4.50)
+pr03 = Produto(2, 300, 'Feijão Mulatinho', 8.50)
 
 listaProdutos = [pr01, pr02, pr03]
 
 #notafiscal
 nf01 = NotaFiscal(0, 100, cl01)
-nf02 = NotaFiscal(1, 200, cl02)
-nf03 = NotaFiscal(2, 300, cl03)
 
-listaNF = [nf01, nf02, nf03]
+listaNF = [nf01]
 
 #itemnotafiscal
 item1 = ItemNotaFiscal(0, 1, 2, pr01)
 item2 = ItemNotaFiscal(1, 1, 5, pr01)
-item3 = ItemNotaFiscal(2, 2, 3, pr02)
-item4 = ItemNotaFiscal(3, 1, 1, pr01)
-item5 = ItemNotaFiscal(4, 2, 1, pr02)
-item6 = ItemNotaFiscal(5, 3, 2, pr03)
-item7 = ItemNotaFiscal(6, 1, 5, pr01)
-item8 = ItemNotaFiscal(7, 2, 3, pr02)
-item9 = ItemNotaFiscal(8, 3, 7, pr03)
+item3 = ItemNotaFiscal(3, 1, 1, pr01)
+item4 = ItemNotaFiscal(6, 1, 5, pr01)
 
-listaItens = [item1, item2, item3, item4, item5, item6, item7, item8, item9]
+listaItens = [item1, item2, item3, item4]
 
 # add itens na nota
 nf01.adicionarItem(item1)
 nf02.adicionarItem(item2)
 nf02.adicionarItem(item3)
 nf03.adicionarItem(item4)
-nf03.adicionarItem(item5)
-nf03.adicionarItem(item6)
-nf03.adicionarItem(item7)
-nf03.adicionarItem(item8)
-nf03.adicionarItem(item9)
 
 
 app = Flask(__name__)
